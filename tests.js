@@ -1,25 +1,13 @@
-jQuery.post("/api/orders", {
-  "customerName": "Anthony",
-  "cafe": "3beanscastletowers",
-  "pickUpTime": "10 mins",
-  "status": "submitted"
-}, function(data, textStatus, jqXHR) {
-    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
-});
-
 jQuery.get("/api/orders/", function (data, textStatus, jqXHR) {
-    console.log("Get resposne:");
+    console.log("Get response:");
     console.dir(data);
     console.log(textStatus);
     console.dir(jqXHR);
 });
 
 
-5013e0f81729c7fc41000001
-
-
 jQuery.get("/api/orders/5013e7111df53cd644000001", function(data, textStatus, jqXHR) {
-    console.log("Get resposne:");
+    console.log("Get response:");
     console.dir(data);
     console.log(textStatus);
     console.dir(jqXHR);
@@ -29,7 +17,7 @@ jQuery.get("/api/orders/");
 
 jQuery.post("/api/orders", {
   "customerName": "Anthony",
-  "cafe": "3beanscastletowers",
+  "cafe": "coffehutcastletowers",
   "pickUpTime": "10 mins",
   "status": "submitted",
   "coffees": [
@@ -61,20 +49,29 @@ jQuery.post("/api/orders", {
      }
    ]
 }, function(data, textStatus, jqXHR) {
-    console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
+    console.log("Post response:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
 });
 
 
 jQuery.ajax({
-    url: "/api/orders/5014efc1fc3fb1a24f000003", 
+    url: "/api/orders/501518c26b90bdc359000003", 
     type: "PUT",
     data: { 
          "status": "queued"
     },
     success: function(data, textStatus, jqXHR) { 
-        console.log("PUT resposne:"); 
+        console.log("PUT response:"); 
         console.dir(data); 
         console.log(textStatus); 
         console.dir(jqXHR); 
     }
+});
+
+
+jQuery.ajax({
+     url: "/api/orders", 
+     type: "DELETE", 
+     success: function(data, textStatus, jqXHR) { 
+        console.dir(data); 
+     }
 });

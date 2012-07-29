@@ -145,6 +145,17 @@ app.delete('/api/orders/:id', function (req, res){
   });
 });
 
-//Laucnh server
+app.delete('/api/orders', function (req, res) {
+  OrderModel.remove(function (err) {
+    if (!err) {
+      console.log("removed");
+      return res.send('');
+    } else {
+      console.log(err);
+    }
+  });
+});
+
+//Start server
 
 app.listen(4242);
