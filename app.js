@@ -102,10 +102,6 @@ app.get('/api/orders/:id', function (req, res){
 
 app.put('/api/orders/:id', function (req, res){
   return OrderModel.findById(req.params.id, function (err, order) {
-    order.customerName = req.body.customerName,
-    order.cafe = req.body.cafe,
-    order.pickUpTime = req.body.pickUpTime,
-    order.coffees = req.body.coffees,
     order.status = req.body.status
     return order.save(function (err) {
       if (!err) {

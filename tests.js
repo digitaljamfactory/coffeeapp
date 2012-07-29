@@ -63,3 +63,18 @@ jQuery.post("/api/orders", {
 }, function(data, textStatus, jqXHR) {
     console.log("Post resposne:"); console.dir(data); console.log(textStatus); console.dir(jqXHR);
 });
+
+
+jQuery.ajax({
+    url: "/api/orders/5014efc1fc3fb1a24f000003", 
+    type: "PUT",
+    data: { 
+         "status": "queued"
+    },
+    success: function(data, textStatus, jqXHR) { 
+        console.log("PUT resposne:"); 
+        console.dir(data); 
+        console.log(textStatus); 
+        console.dir(jqXHR); 
+    }
+});
