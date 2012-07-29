@@ -99,6 +99,24 @@ app.get('/api/orders/:id', function (req, res){
   });
 });
 
+app.get('/api/orders/cafe/:name', function (req, res){
+  console.log(req.params.name);
+  var query = OrderModel.find({});
+ 
+  query.where('cafe',req.params.name);
+  query.where('status','submitted');
+
+  query.exec( function (err, orders) {
+    if (!err) {     
+      console.log(orders);
+      return res.send(orders);
+    } else {
+      return console.log(err);
+    }
+  });
+});
+
+
 
 app.put('/api/orders/:id', function (req, res){
   return OrderModel.findById(req.params.id, function (err, order) {
