@@ -16,9 +16,10 @@ jQuery.get("/api/orders/5013e7111df53cd644000001", function(data, textStatus, jq
 jQuery.get("/api/orders/");  
 
 jQuery.post("/api/orders", {
-  "customerName": "Anthony",
+  "customerId": "501678ee773cbc7a6b00000d",
+  "pickUpName": "Anthony",
   "cafe": "coffehutcastletowers",
-  "pickUpTime": "10 mins",
+  "pickUpTime": "2012-07-30T11:56:46.618Z",
   "status": "submitted",
   "coffees": [
      { "size": "small",

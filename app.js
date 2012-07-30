@@ -8,7 +8,7 @@ var app = express.createServer();
 
 
 //Database
-
+ 
 mongoose.connect('mongodb://localhost/coffee_app_database');
 
 app.configure(function () {
@@ -23,6 +23,21 @@ var Schema = mongoose.Schema;
 
 
 // Schemas
+
+var Customer = new Schema({
+
+   pickUpName: { type: String, required: true},
+   emailAddress: { type: String, required: true},
+   password: { type: String, required: true},
+   cafeName: { type: String, required: true}
+});
+
+var Cafe = new Schema({
+   name: { type: String, required: true},
+   emailAddress: { type: String, required: true},
+   password: { type: String, required: true},
+   address: { type: String, required: true}
+});
 
 var Sugars = new Schema({
    type: { type: String,  required: true },
@@ -40,9 +55,10 @@ var Coffees = new Schema({
 });
 
 var Order = new Schema({  
-    customerName: { type: String, required: true },  
+    customerId: { type: String, required: true},
+    pickUpName: { type: String, required: true },  
     cafe: { type: String, required: true },  
-    pickUpTime: { type: String, required: true },
+    pickUpTime: { type: Date, required: true },
     status: { type: String, required: true },
     coffees: [Coffees],
     modified: { type: Date, default: Date.now }
@@ -71,7 +87,8 @@ app.post('/api/orders', function (req, res){
   console.log("POST: ");
   console.log(req.body);
   order = new OrderModel({
-    customerName: req.body.customerName,
+    customerId: req.body.customerId,
+    pickUpName: req.body.pickUpName,
     cafe: req.body.cafe,
     pickUpTime: req.body.pickUpTime,
     status: req.body.status,
