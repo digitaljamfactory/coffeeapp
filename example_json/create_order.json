@@ -1,0 +1,36 @@
+{
+  "pickUpName": "Anthony",
+  "customerId":"sfdfsdfukadssads",
+  "token": "bb04277bed0c3fbda25ef6026cc9c0d91ed801c8680361ba",
+  "cafe": "coffehutcastletowers",
+  "pickUpTime": "2012-08-12T02:43:53.545Z",
+  "status": "submitted",
+  "coffees": [
+     { "size": "small",
+       "strength": "Decaf",
+       "milk": "skim",
+       "sugars": [
+         {
+            "type":"Brown",
+            "number":"2"
+         }
+       ],
+       "type": "flat white",
+       "quantity": "1",
+       "note": "not too hot please"
+     },
+     { "size": "large",
+       "strength": "strong",
+       "milk": "black",
+       "sugars": [
+         {
+            "type":"None",
+            "number": "0"
+         }
+       ],
+       "type": "cappuccino",
+       "quantity": "1",
+       "note": ""
+     }
+   ]
+}
